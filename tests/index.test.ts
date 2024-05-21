@@ -14,7 +14,7 @@ test('jikan', async () => {
   expect(result.formatted).toMatch(/ms/)
 })
 
-test('jikan format \'s\'', async () => {
+test("jikan format 's'", async () => {
   const result = await jikan({
     options: {
       format: 's',
@@ -27,7 +27,7 @@ test('jikan format \'s\'', async () => {
   expect(result.formatted).toMatch(/s/)
 })
 
-test('jikan format \'m\'', async () => {
+test("jikan format 'm'", async () => {
   const result = await jikan({
     options: {
       format: 'm',
@@ -40,7 +40,7 @@ test('jikan format \'m\'', async () => {
   expect(result.formatted).toMatch(/m/)
 })
 
-test('jikan format \'h\'', async () => {
+test("jikan format 'h'", async () => {
   const result = await jikan({
     options: {
       format: 'h',

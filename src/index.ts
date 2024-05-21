@@ -5,7 +5,9 @@ import { FormatTimeParams, JikanParams, JikanResult } from '@/types'
  * @param props
  * @returns Promise<JikanResult<T>>
  */
-export const jikan = async <T>(props: JikanParams<T>): Promise<JikanResult<T>> => {
+export const jikan = async <T>(
+  props: JikanParams<T>
+): Promise<JikanResult<T>> => {
   // Start the timer
   const start = performance.now()
 
