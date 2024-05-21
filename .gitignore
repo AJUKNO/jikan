@@ -13,8 +13,6 @@ dist/
 ehthumbs.db
 Thumbs.db
 
-*.yml
-
 # IntelliJ IDEA
 .idea
 coverage
