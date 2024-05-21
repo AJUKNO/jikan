@@ -13,14 +13,6 @@ way to track the performance of your functions in a Node.js environment.
 - Supports multiple time formats including milliseconds, seconds, minutes, and hours
 - Provides an easy-to-use API to measure the elapsed time of a function
 
-## Installation
-
-You can install Jikan using npm:
-
-```bash
-npm install jikan
-```
-
 ## Usage
 
 Here is a basic example of how to use Jikan:
@@ -63,9 +55,13 @@ The `jikan` function returns a promise that resolves to an object with the follo
 - `formatted`: The formatted elapsed time.
 - `result`: The result of the `executable` function.
 
-## Contributing
+## Tests
 
-Contributions are welcome. Please submit a pull request on GitHub.
+Mite has a suite of tests that can be run using Jest. To run the tests, use the following command:
+
+```bash
+npm run test
+```
 
 ## License
 
