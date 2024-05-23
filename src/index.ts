@@ -45,12 +45,12 @@ const formatTime = (props: FormatTimeParams): string => {
 
   switch (format) {
     case 'ms':
-      return `${elapsed}ms`
+      return `${elapsed.toFixed(2)}ms`
     case 's':
-      return `${elapsed / 1000}s`
+      return `${(elapsed / 1000).toFixed(2)}s`
     case 'm':
-      return `${elapsed / 1000 / 60}m`
+      return `${(elapsed / 1000 / 60).toFixed(2)}m`
     case 'h':
-      return `${elapsed / 1000 / 60 / 60}h`
+      return `${(elapsed / 1000 / 60 / 60).toFixed(2)}h`
   }
 }
