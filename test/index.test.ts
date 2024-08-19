@@ -1,5 +1,5 @@
-import { formatTime, jikan } from '../src'
-import { JikanOptions, JikanResult } from '../src/types'
+import { JikanOptions, JikanResult } from '@/types'
+import { formatTime, jikan } from '@/index'
 
 beforeEach(() => {
   jest.spyOn(performance, 'now').mockImplementation(() => 1000)

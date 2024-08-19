@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./.github/assets/jikan-banner.png" alt="Mite banner">
+  <img src="https://raw.githubusercontent.com/AJUKNO/jikan/refactor/jikan-impl/.github/assets/jikan-banner.png" alt="Jikan banner">
 </p>
 
 <p align="center">
