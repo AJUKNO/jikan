@@ -1,4 +1,4 @@
-import { JikanOptions, JikanResult, TimeFormat } from '@/types'
+import { JikanOptions, JikanResult, TimeFormat } from './types';
 
 /**
  * Formats the elapsed time based on the specified format.
@@ -8,16 +8,16 @@ import { JikanOptions, JikanResult, TimeFormat } from '@/types'
  * @returns A formatted string representing the elapsed time.
  */
 export const formatTime = (elapsed: number, format: TimeFormat): string => {
-  switch (format) {
-    case 's':
-      return `${(elapsed / 1000).toFixed(2)} seconds`
-    case 'm':
-      return `${(elapsed / 60000).toFixed(2)} minutes`
-    case 'ms':
-    default:
-      return `${elapsed.toFixed(2)} milliseconds`
-  }
-}
+    switch (format) {
+        case 's':
+            return `${(elapsed / 1000).toFixed(2)} seconds`;
+        case 'm':
+            return `${(elapsed / 60000).toFixed(2)} minutes`;
+        case 'ms':
+        default:
+            return `${elapsed.toFixed(2)} milliseconds`;
+    }
+};
 
 /**
  * Measures the time taken to execute a function and returns the result along with timing information.
@@ -37,40 +37,40 @@ export const formatTime = (elapsed: number, format: TimeFormat): string => {
  * console.log(result);
  */
 export function jikan<T>(
-  executable: () => Promise<T> | T,
-  options?: JikanOptions
+    executable: () => Promise<T> | T,
+    options?: JikanOptions
 ): Promise<JikanResult<T>> | JikanResult<T> {
-  const start = performance.now()
+    const start = performance.now();
 
-  try {
-    const result = executable()
+    try {
+        const result = executable();
 
-    if (result instanceof Promise) {
-      return result.then((res) => {
-        const end = performance.now()
-        const elapsed = end - start
-        const formatted = formatTime(elapsed, options?.format || 'ms')
-        return {
-          elapsed,
-          start,
-          end,
-          formatted,
-          result: res,
+        if (result instanceof Promise) {
+            return result.then((res) => {
+                const end = performance.now();
+                const elapsed = end - start;
+                const formatted = formatTime(elapsed, options?.format || 'ms');
+                return {
+                    elapsed,
+                    start,
+                    end,
+                    formatted,
+                    result: res,
+                };
+            });
+        } else {
+            const end = performance.now();
+            const elapsed = end - start;
+            const formatted = formatTime(elapsed, options?.format || 'ms');
+            return {
+                elapsed,
+                start,
+                end,
+                formatted,
+                result,
+            };
         }
-      })
-    } else {
-      const end = performance.now()
-      const elapsed = end - start
-      const formatted = formatTime(elapsed, options?.format || 'ms')
-      return {
-        elapsed,
-        start,
-        end,
-        formatted,
-        result,
-      }
+    } catch (error) {
+        throw new Error(`Execution failed: ${error}`);
     }
-  } catch (error) {
-    throw new Error(`Execution failed: ${error}`)
-  }
 }

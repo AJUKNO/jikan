@@ -1,68 +1,82 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AJUKNO/jikan/refactor/jikan-impl/.github/assets/jikan-banner.png" alt="Jikan banner">
+  <img src="https://raw.githubusercontent.com/AJUKNO/ts-starter/develop/.github/assets/starter-banner.png" alt="Starter banner">
 </p>
 
 <p align="center">
-  Jikan is a simple utility written in TypeScript that measures the elapsed time of a function. It provides a convenient
-way to track the performance of your functions in a Node.js environment.
+A TypeScript starter project template with essential configurations and scripts for building, linting, formatting, and
+testing.
+</p>
+
+<p align="center">
+<a href="https://www.npmjs.com/package/@ajukno/ts-starter"><img src="https://img.shields.io/npm/v/%40ajukno%2Fts-starter?labelColor=%23C75B7A&color=3D3B40" alt="NPM Version"></a>
 </p>
 
 ## Features
 
-- Measures the elapsed time of a function
-- Supports multiple time formats including milliseconds, seconds, and minutes
-- Provides an easy-to-use API to measure the elapsed time of a function
+- TypeScript
+- ESLint
+- Prettier
+- Vitest
+- TSUP for bundling
 
-## Usage
+## Getting Started
 
-Here is a basic example of how to use Jikan:
+### Installation
 
-```typescript
-import { jikan } from "jikan";
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/ajukno/ts-starter.git
+    cd ts-starter
+    ```
 
-// Synchronous usage
-const syncFunc = () => 42;
-const syncResult = jikan(syncFunc);
-console.log(syncResult.elapsed); // Outputs the elapsed time in milliseconds
-console.log(syncResult.formatted); // Outputs the formatted elapsed time
+2. Install dependencies:
+    ```sh
+    pnpm install
+    ```
 
-// Asynchronous usage
-const asyncFunc = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return 42;
-};
-const asyncResult = await jikan(asyncFunc);
-console.log(asyncResult.elapsed); // Outputs the elapsed time in milliseconds
-console.log(asyncResult.formatted); // Outputs the formatted elapsed time
-```
+### Scripts
 
-In the above examples, `jikan` is used to measure the time it takes for synchronous and asynchronous functions to execute. The elapsed time is then logged to the console.
+- `build-fast`: Quickly build the project without generating type declarations.
+    ```sh
+    pnpm run build-fast
+    ```
 
-## API
+- `build`: Build the project with type declarations.
+    ```sh
+    pnpm run build
+    ```
 
-### jikan
+- `build:watch`: Watch for changes and rebuild the project.
+    ```sh
+    pnpm run build:watch
+    ```
 
-The `jikan` function is the main export of the Jikan module. It takes two parameters:
+- `format`: Format the code using Prettier.
+    ```sh
+    pnpm run format
+    ```
 
-- `executable`: A function that returns a promise or a value. This is the function that will be timed.
-- `options`: An optional object that can contain a `format` property. The `format` property can be one of the following strings: `"ms"`, `"s"`, `"m"`. This determines the format of the elapsed time. If no format is provided, it defaults to `"ms"`.
+- `lint`: Lint the code using ESLint.
+    ```sh
+    pnpm run lint
+    ```
 
-The `jikan` function returns a promise that resolves to an object with the following properties:
+- `lint:fix`: Lint and fix the code using ESLint.
+    ```sh
+    pnpm run lint:fix
+    ```
 
-- `elapsed`: The elapsed time in milliseconds.
-- `start`: The start time of the function execution.
-- `end`: The end time of the function execution.
-- `formatted`: The formatted elapsed time.
-- `result`: The result of the `executable` function.
+- `test`: Run tests using Vitest.
+    ```sh
+    pnpm run test
+    ```
 
-## Tests
+## Project Structure
 
-Jikan has a suite of tests that can be run using Jest. To run the tests, use the following command:
-
-```bash
-npm run test
-```
+- `src/`: Source code directory.
+- `tests/`: Test files directory.
+- `dist/`: Distribution directory (generated after build).
 
 ## License
 
-Jikan is licensed under the MIT license.
+This project is licensed under the MIT License.
