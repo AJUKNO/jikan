@@ -1,23 +1,38 @@
-export interface JikanParams<T> {
-  options?: JikanOptions;
-  executable: () => Promise<T>;
-}
+/**
+ * Represents the available time formats for the `jikan` function.
+ */
+export type TimeFormat = 'ms' | 's' | 'm';
 
+/**
+ * Options for configuring the `jikan` function.
+ */
 export interface JikanOptions {
-  format: JikanTimeFormat;
+    /**
+     * The format in which the elapsed time should be presented.
+     *
+     * - 'ms': Milliseconds
+     * - 's': Seconds
+     * - 'm': Minutes
+     */
+    format?: TimeFormat;
 }
 
-export type JikanTimeFormat = 'ms' | 's' | 'm' | 'h';
-
+/**
+ * Represents the result of the `jikan` function, including timing information and the function's result.
+ */
 export interface JikanResult<T> {
-  elapsed: number;
-  start: number;
-  end: number;
-  formatted: string;
-  result: T;
-}
+    /** The elapsed time in milliseconds. */
+    elapsed: number;
 
-export interface FormatTimeParams {
-  elapsed: number;
-  format: JikanTimeFormat;
+    /** The timestamp when the function execution started. */
+    start: number;
+
+    /** The timestamp when the function execution ended. */
+    end: number;
+
+    /** The formatted string representing the elapsed time. */
+    formatted: string;
+
+    /** The result returned by the executed function. */
+    result: T;
 }
